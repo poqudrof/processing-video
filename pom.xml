@@ -11,12 +11,12 @@
     
     <groupId>org.processing</groupId>
     <artifactId>video</artifactId>
-    <version>3.0-SNAPSHOT</version>
+    <version>3.0a10</version>
     <packaging>jar</packaging>
 
     <name>Processing video library</name>
     <description>Processing is a programming language, development environment, and online community. 
-       Video library. Read images from a camera, play movie files, and create movies.
+        Video library. Read images from a camera, play movie files, and create movies.
     </description>
 
         
@@ -44,21 +44,25 @@
     <build>
         <sourceDirectory>src</sourceDirectory>
         
-        <plugins>    
-            
+        <plugins>               
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
                 <executions>
                     <execution>
                         <id>default-compile</id>
-                        <phase>none</phase>
+                        <phase>compile</phase>
                     </execution>
                 </executions>
             </plugin>
             
-            <plugin>
+       
+            <!--            <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.8</version>
                 <executions>
@@ -66,11 +70,12 @@
                         <phase>compile</phase>
                         <configuration>
                             <target>
-                                <!--NOT Working build manually with "$ant build" in the folder...-->
+                                NOT Working build manually with "$ant build" in the folder...
                                 <ant antfile="build.xml" target="build"/>
                                 <copy todir="target/classes/">
-                                    <fileset dir="bin/"/>
+                                    <fileset dir="library/"/>
                                 </copy>
+                                <copy file="library/video.jar" tofile="target/video.jar"/>
                             </target>                            
                         </configuration>
                         <goals>
@@ -78,7 +83,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
             
             
             <plugin>
@@ -87,6 +92,31 @@
             
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <additionalparam>-Xdoclint:none</additionalparam>
+                </configuration>
+                <!--                <configuration>
+                    <tags>
+                        <tag>
+                            <name>webref</name>
+                            todo tag for all places 
+                            <placement>a</placement>
+                            <head>link to website: </head>
+                        </tag>
+                        <tag>
+                            <name>brief</name>
+                            todo tag for all places 
+                            <placement>a</placement>
+                            <head>link to website: </head>
+                        </tag>
+                        <tag>
+                            <name>nowebref</name>
+                            todo tag for all places 
+                            <placement>a</placement>
+                            <head>no link to website:</head>
+                        </tag>
+                    </tags>
+                </configuration>-->
             </plugin>
             
             <plugin>
