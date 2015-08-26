@@ -11,7 +11,7 @@
     
     <groupId>org.processing</groupId>
     <artifactId>video</artifactId>
-    <version>3.0a10</version>
+    <version>3.0b5</version>
     <packaging>jar</packaging>
 
     <name>Processing video library</name>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.processing</groupId>
             <artifactId>core</artifactId>
-            <version>3.0a10</version>
+            <version>3.0b5</version>
         </dependency>
     
         <dependency>
